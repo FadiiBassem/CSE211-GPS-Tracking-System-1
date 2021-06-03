@@ -1,15 +1,12 @@
 #include "tm4c123gh6pm.h"
 #include <stdint.h>
 
-
 void LCD_init();
 void LCD_command(char command);
 void LCD_data(char data);
 void LCD_clear();
 void LCD_set_Cursor(int line, int block);
 void LCD_delay(int time);
-
-
 
 /* initializes the ports A for commands (3 pins), B for data (8 pins)*/
 void LCD_init(){
@@ -49,8 +46,8 @@ void LCD_command(char command){
     GPIO_PORTA_DATA_R = 0X80;
     LCD_delay(3);
     GPIO_PORTA_DATA_R = 0X00;
-
 }
+
 
 /* Takes the hexacode of the data */
 void LCD_data(char data){
@@ -86,7 +83,4 @@ void LCD_delay(int milliseconds){
         for (int j = 0; j < 3180; j++)
         {
             
-        }
-        
-    }
-}
+       }}}
