@@ -1,33 +1,4 @@
-
-
-/* Takes the hexacode of the command */
-void LCD_command(char command){
-    GPIO_PORTA_DATA_R = 0X00;
-
-    // Sends the commands into the data ports (B)
-    GPIO_PORTB_DATA_R = command;
-
-    // Sets and resets the enable, because the enable works only in the falling edge
-    GPIO_PORTA_DATA_R = 0X80;
-    LCD_delay(3);
-    GPIO_PORTA_DATA_R = 0X00;
-
-}
-
-/* Takes the hexacode of the data */
-void LCD_data(char data){
-    // Sets the Rs
-    GPIO_PORTA_DATA_R = 0X20;
-    // Sends the data into the data ports (B)
-    GPIO_PORTB_DATA_R = data;
-
-    GPIO_PORTA_DATA_R |= 0X80;
-    LCD_delay(3);
-    GPIO_PORTA_DATA_R = 0X00;
-
-}
-
-void LCD_clear(){
+ear(){
     LCD_command(0X01);
 }
 
